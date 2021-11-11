@@ -15,6 +15,10 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'age',
+        'weight',
+        'height',
+        'sex',
         'password',
     ];
 
@@ -22,9 +26,9 @@ class User extends Authenticatable
         'password',
     ];
 
-    public function products()
+    public function meals()
     {
-        return $this->belongsToMany(Product::class)->withTimestamps();
+        return $this->hasMany(Meal::class);
     }
 
     public function setPasswordAttribute($value)

@@ -17,6 +17,10 @@ class ProfileResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'age' => $this->age,
+            'height' => $this->height,
+            'weight' => $this->weight,
+            'sex' => $this->sex,
             'email' => $this->email
         ];
     }

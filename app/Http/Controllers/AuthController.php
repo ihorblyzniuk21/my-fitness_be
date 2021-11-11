@@ -15,6 +15,7 @@ class AuthController extends Controller
     {
         try {
             $user = User::create($request->all());
+
             $token = new AuthTokenResource($user->createToken(''));
 
             return response()->json($token);
@@ -69,5 +70,27 @@ class AuthController extends Controller
                 'exception' => $ex->getMessage()
             ], 500);
         }
+    }
+
+    public function update($id, Request $request)
+    {
+        try {
+            $user = User::findOrFail($id);
+            $user->name = $request->get('name');
+            $user->email = $request->get('email');
+            $user->age = $request->get('age');
+            $user->weight = $request->get('weight');
+            $user->height = $request->get('height');
+
+            $user->save();
+
+            return response()->json(new ProfileResource($user));
+        } catch (\Exception $ex) {
+            return response()->json([
+                'message' => 'Could not update profile.',
+                'exception' => $ex->getMessage()
+            ], 500);
+        }
+
     }
 }

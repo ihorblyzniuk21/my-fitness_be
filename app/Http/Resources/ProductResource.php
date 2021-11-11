@@ -15,15 +15,15 @@ class ProductResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            "calories" => $this->calories,
-            "carbs" => $this->carbs,
-            "fat" => $this->fat,
-            "protein" => $this->protein,
-            "sodium" => $this->sodium,
-            "sugar" => $this->sugar,
-            "created_at" => $this->pivot->created_at,
+//            'id' => $this->id,
+//            'name' => $this->name,
+//            "calories" => $this->calories,
+//            "carbs" => $this->carbs,
+//            "fat" => $this->fat,
+//            "protein" => $this->protein,
+//            "sodium" => $this->sodium,
+//            "sugar" => $this->sugar,
+//            "created_at" => $this->pivot->created_at,
         ];
     }
 }
